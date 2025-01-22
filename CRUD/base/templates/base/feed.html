@@ -1,0 +1,22 @@
+<div>
+    {% for room in rooms %}
+        <a href="{% url 'userprofile' room.host.id %}">@{{room.host.username}}</a>
+        <div>
+        {% comment %} <h4>{{room.id}} -- <a href="room/{{room.id}}/">{{room.name}}</a></h4> {% endcomment %}
+        {% comment %} ANCHOR TAG ME JO href HAI WO SEEDHA UPAR MAIN URL ME CHANGES KRTA HAI {% endcomment %}
+
+        <h4>{{room.id}} -- <a href="{% url 'base_room' room.id %}">{{room.name}}</a></h4>
+        {% comment %} THIS IS USED TO PERFORM THE SAME TASK AS ABOVE BUT USING 'NAME' GIVEN IN THE URL PATH.... THIS ENSURES THAT IF ANY CHANGE IS DONE IN THE ROUTING WALA NAME LIKE THIS:(ROOM/1/..) SO IT HAS NOT TO BE DONE EVERYWHERE. {% endcomment %}
+
+        <small>{{room.topic.name}}</small>
+        <br>
+        {% if request.user == room.host %}
+            <a href="{% url 'update_room' room.id%}">EDIT</a>
+            <br>
+            <a href="{% url 'delete_room' room.id %}">DELETE</a>
+        {% endif %}
+        <hr>
+        </div>
+
+    {% endfor %}
+</div>
