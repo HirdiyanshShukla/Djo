@@ -9,11 +9,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 
-# rooms = [
-#     {'id':1, 'name': 'FullfunnyKardi :)'},
-#     {'id':2, 'name': 'padhlo_guysss :<'},
-#     {'id':3, 'name': 'hago.hago_hehe :>'},
-# ]
 
 def LoginPage(request):
     page = 'login'
